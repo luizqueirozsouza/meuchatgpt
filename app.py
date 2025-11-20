@@ -2,6 +2,8 @@ import streamlit as st
 from datetime import datetime
 import requests
 import json
+from auth import login
+
 
 # Configuração da página
 st.set_page_config(
@@ -10,9 +12,14 @@ st.set_page_config(
     layout="centered"
 )
 
+# Login
+if not login():
+    st.stop()
+
+
 # Título do aplicativo
 st.title("🤖 Chat com IA via OpenRouter")
-
+st.write("Conteúdo protegido…")
 # Sidebar com configurações
 with st.sidebar:
     st.header("⚙️ Configurações")
